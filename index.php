@@ -17,22 +17,37 @@ class movie {
     public $actor;
     public $vote;
 
-    function __construct($title, $actor, $regista, $vote);
+    function __construct($title, $actor, $regist, $vote)
     {
         $this->title = $title;
         $this->regist = $regist;
         $this->actor = $actor;
         $this->vote = $vote; 
     }
-};
-$Amélie = new movie('Il favoloso mondo di Amélie','Audrey Tautou','Jean-Pierre Jeunet', 8);
-var_dump($Amélie);
+    function setVote($vote) {
+        if($vote >=0 && $vote <=10) {
+            $this->vote = $vote;
+        } else {
+            $this->vote = 'il voto non è corretto';
+        }
+    }
+}
+
+$Amelie = new movie('Il favoloso mondo di Amélie', 'Audrey Tautou','Jean-Pierre Jeunet', -2);
+$Amelie->setVote(-2);
+var_dump($Amelie);
 
 $Pallottole = new movie('pallottole cinesi','Tom Dey','Jackie Chan', 7/8);
+$Pallottole->setVote(8);
 var_dump($Pallottole);
 
-$Impossible = new movie('Mission Impossible''Brian De Palma','Tom Cruise' 9);
+$Impossible = new movie('Mission Impossible','Brian De Palma','Tom Cruise', 9);
+$Impossible->setVote(9);
 var_dump($Impossible);
+
+$Mercenari = new movie('I Mercenari','Sylvester Stallone','Sylvester Stallone', 9);
+$Mercenari->setVote(9);
+var_dump($Mercenari);
 ?>
     
 </body>
